@@ -1,0 +1,36 @@
+<div class="container" *ngIf="task">
+    <h2>{{title}}</h2>
+
+    <div class="message exito bg-info text-white" *ngIf="status == 'exito'">
+        La tarea se ha guardado correctamente.
+    </div>
+
+    <div class="message fallo bg-danger text-white" *ngIf="status == 'fallo'">
+        La tarea no se ha podido guardar
+    </div>
+
+    <form #taskForm="ngForm" (ngSubmit)="tSubmit(taskForm)">
+        <div class="form-group">
+            <label for="name">Nombre de la Tarea</label>
+            <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="task.name" required>
+            <span *ngIf="name.touched && !name.valid">
+                        El nombre es obligatorio
+                    </span>
+
+
+            <!-- 
+            <label for="taskList">Introducir: </label>
+            <input type="text" class="form-control" name="taskList" #taskList="ngModel" [(ngModel)]="task.taskList"> -->
+
+            <label for="limitDate">Fecha Limite</label>
+            <input type="datetime-local" class="form-control" name="limitDate" #limitDate="ngModel" [(ngModel)]="task.limitDate" required>
+            <span *ngIf="limitDate.touched && !limitDate.valid">
+                            La fecha limite es obligatorio
+                        </span>
+
+
+
+            <input type="submit" class="btn btn-info" value="Guardar Lista" [disabled]="!taskForm.form.valid">
+        </div>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="container" *ngIf="list">
+    <h2>{{title}}</h2>
+
+
+    <div class="message exito bg-info text-white" *ngIf="status == 'exito'">
+        La lista se ha creado correctamente, puedes <a [routerLink]="['/lista', save_list.id]">observarlo aquí</a>
+    </div>
+
+    <div class="message fallo bg-warning" *ngIf="status == 'fallo'">
+        La lista no se ha podido crear
+    </div>
+
+    <form #listForm="ngForm" (ngSubmit)="onSubmit(listForm)">
+        <div class="form-group">
+
+            <label for="name">Nombre de la Lista</label>
+            <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="list.name" placeholder="Lista" required>
+            <span *ngIf="name.touched && !name.valid">
+                    El nombre es obligatorio
+            </span>
+            <small class="form-text text-muted">Se recomienda un nombre relacionado al tema.</small>
+
+
+            <input type="submit" class="btn btn-primary" value="Crear Lista" [disabled]="!listForm.form.valid">
+
+        </div>
+
+    </form>
+
+</div>

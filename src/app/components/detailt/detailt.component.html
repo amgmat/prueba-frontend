@@ -1,0 +1,25 @@
+<div class="container" *ngIf="task">
+    <h1>{{task.name}}</h1>
+    <!-- <h2>{{task.taskList.id}}</h2> -->
+    <h3>Fecha de creación: {{task.creationDate | date: 'yyyy-MM-dd HH:mm'}}</h3>
+    <h3>Fecha limite: {{task.limitDate | date: 'yyyy-MM-dd HH:mm'}}</h3>
+    <!-- <h3>{{task.endDate}}</h3> -->
+
+    <br>
+
+    <div *ngIf="confirm ==false">
+        <a [routerLink]="['/editar-tarea/', task.id]"><span class="btn btn-info mt-3">Editar</span></a>
+        <br>
+        <a (click)="setConfirm(true)"><span class="btn btn-danger mt-3">Borrar</span></a>
+    </div>
+
+    <div *ngIf="confirm == true">
+        ¿Estas seguro de eliminar esta lista?
+        <br>
+        <a (click)="setConfirm(false)"><span class="btn btn-warning mt-3">Cancelar</span></a>
+        <br>
+        <a (click)="deleteTask(task.id)"><span class="btn btn-danger mt-3">Eliminar</span> </a>
+    </div>
+
+
+</div>

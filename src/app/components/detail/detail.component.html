@@ -1,0 +1,42 @@
+<div class="container" *ngIf="list">
+    <h1>{{list.name}}</h1>
+
+    <!-- <ul>
+        <li *ngFor="let task of tasks ">
+            <h3>{{task.name}}</h3>
+        </li>
+    </ul> -->
+
+
+    <div *ngIf="confirm == false">
+        <a [routerLink]="['/crear-tarea', list.id]"><span class="btn btn-primary m-2">Crear Tarea</span> </a>
+        <br>
+        <a [routerLink]="['/editar-lista', list.id]"><span class="btn btn-info m-2">Editar</span> </a>
+        <br>
+        <a (click)="setConfirm(true)"><span class="btn btn-danger m-2">Borrar</span></a>
+    </div>
+
+    <p *ngIf="confirm == true">
+        ¿Estas seguro de eliminar esta lista?
+        <br>
+        <a (click)="setConfirm(false)"> <span class="btn btn-warning mt-3">Cancelar</span> </a>
+        <br>
+        <a (click)="deleteList(list.id)"> <span class="btn btn-danger mt-3"> Eliminar</span></a>
+    </p>
+</div>
+
+<!-- <div class="container" *ngIf="tasks">
+    <h4>Tareas</h4>
+    <ul>
+        <li *ngFor="let task of tasks">
+            <a [routerLink]="['/lista', list.id]">
+                <div *ngIf="task.taskList == list.id">
+                    <h3>{{task.name}}</h3>
+                   
+</div>
+
+
+</a>
+</li>
+</ul>
+</div> -->

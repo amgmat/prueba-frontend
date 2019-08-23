@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header .menu {
+    text-align: center;
+}
+
+header ul li {
+    display: inline-block;
+    margin: 15px 10px;
+    /* padding: 20px 10px; */
+    position: relative;
+    text-align: center;
+}
+
+.container {
+    /* width: 80%; */
+    text-align: center;
+}
+
+.container h2 {
+    padding: 20px;
+}
+
+.container form input[type="submit"],
+.container form input[type="text"] {
+    margin: 10px;
+}

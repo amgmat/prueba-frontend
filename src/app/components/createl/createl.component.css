@@ -1,0 +1,8 @@
+form input[disabled] {
+    cursor: not-allowed;
+}
+
+.message {
+    padding: 5px;
+    border: 1px solid #eee;
+}

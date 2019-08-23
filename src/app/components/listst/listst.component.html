@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Listas de Tareas</h2>
+
+    <div *ngIf="!tasks">
+        Cargando...
+    </div>
+
+    <div *ngIf="tasks">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let task of tasks">
+                <a class="" [routerLink]="['/tarea', task.id]">
+                    <span class="h4">
+                    {{task.name }}
+                   </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+</div>

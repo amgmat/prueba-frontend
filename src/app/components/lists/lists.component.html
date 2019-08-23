@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Listas</h2>
+
+    <div *ngIf="!lists">
+        Cargando...
+    </div>
+
+    <div *ngIf="lists">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let list of lists; let i = index">
+                <a [routerLink]="['/lista', list.id]">
+
+                    <span class="h4">{{i+1}} - {{list.name}}</span>
+
+                </a>
+
+            </li>
+        </ul>
+
+    </div>
+
+</div>
